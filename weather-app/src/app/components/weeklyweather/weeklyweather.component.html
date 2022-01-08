@@ -1,0 +1,8 @@
+<div class="row" style="overflow: hidden; position: relative;">
+    <h5 style="padding:0;">Előrejelzés:</h5>
+    <div class="glassbody" [@listAnimation] *ngIf="weathers.length > 0">
+        <div *ngFor="let weatherData of weathers" style=" overflow: hidden;">
+            <app-mindailyweather [weatherData]="weatherData"></app-mindailyweather>
+        </div>
+    </div>
+</div>

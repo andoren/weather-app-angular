@@ -1,0 +1,39 @@
+<div style="height: 100%; position: relative;">
+    <div class="row px-4 owhidden" style="height: 150px;">
+        <div *ngIf="currentWeatherData" [@animateFromTop] class="glassbody">
+            <div class="celsius center d-flex flex-row">
+                <span>{{currentWeatherData?.main.temp | number:'1.0-0'}}</span> <span *ngIf="currentWeatherData?.main.temp">&#x2103;</span>
+            </div>
+            <h3 style="text-align:center">{{capitalizeFirstLetter(currentWeatherData?.weather[0].description) }}</h3>
+        </div>
+    </div>
+    <div class="row pt-4 px-4 owhidden">
+        <div *ngIf="currentWeatherData" [@animateFromLeft] class="col-md-6 " style="padding: 0; padding-right:0.5rem;">
+            <div class="glassbody py-3  center ">
+                <h5 style="font-size: x-large; margin:0; padding:0;">Páratartalom</h5>
+                <span style="font-size: xx-large;">{{currentWeatherData?.main.humidity}} %</span>
+            </div>
+        </div>
+        <div *ngIf="currentWeatherData" [@animateFromRight] class="col-md-6 " style="padding: 0; padding-left:0.5rem;">
+            <div class="glassbody py-3 center">
+                <h5 style="font-size: x-large; margin:0; padding:0;">Szélsebesség</h5>
+                <span style="font-size: xx-large;">{{currentWeatherData?.wind.speed | number:'1.0-0'}} km/h</span>
+                <span>{{getWindTextBySpeed(currentWeatherData?.wind.speed)}}</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row pt-4  px-4 owhidden">
+        <div *ngIf="currentWeatherData" [@animateFromBottom] class="glassbody py-2 d-flex ">
+            <div class="col-md-6 center ">
+                <h5 style="font-size: x-large; margin:0; padding:0;">Napkelte</h5>
+                <span style="font-size: xx-large;">{{getFormatedTimeFromTimestamp(currentWeatherData?.sys.sunrise) }}</span>
+            </div>
+            <div class="col-md-6 center ">
+                <h5 style="font-size: x-large; margin:0; padding:0;">Napnyugta</h5>
+                <span style="font-size: xx-large;">{{getFormatedTimeFromTimestamp(currentWeatherData?.sys.sunset) }}</span>
+            </div>
+        </div>
+
+    </div>
+</div>

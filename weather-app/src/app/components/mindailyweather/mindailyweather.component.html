@@ -1,0 +1,14 @@
+<div class="row minweather">
+    <div class="col-1  text-right" style="padding: 0; padding-left: 1rem;">
+        {{getDay()}}
+    </div>
+    <div class="col-3" style=" padding:0;padding-left:1.5rem">
+        {{weatherData.temp?.day | number:'1.0-0'}} &#x2103;
+    </div>
+    <div class="col-4" style=" padding:0;">
+        {{capitalizeFirstLetter(weatherData.weather[0].description) }}
+    </div>
+    <div class="col-4 p-0 d-flex flex-row">
+        <span>Pára: {{weatherData?.humidity | number:'1.0-0'}} %</span> <span> Szél: {{weatherData?.wind_speed | number:'1.0-0'}} km/h</span>
+    </div>
+</div>

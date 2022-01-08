@@ -1,0 +1,19 @@
+input[type="text"] {
+    color: white;
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid lightgray 1px;
+    transition: transform .2s;
+    width: 100%;
+    font-size: xx-large;
+    /* Animation */
+}
+
+input[type="text"]:focus {
+    color: white;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    border-bottom: solid #0778fa 1px;
+    transform: scale(1.1);
+}
